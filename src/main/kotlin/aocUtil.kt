@@ -47,3 +47,11 @@ fun solveInt(dayNumber: Int, part: Int, solution: BufferedReader.() -> Int) {
     reader.close()
     println("Day $dayNumber, part $part: $result")
 }
+
+fun solve(dayNumber: Int, solution: BufferedReader.() -> Unit) {
+    val file = File("data/day$dayNumber.txt")
+    val reader = file.bufferedReader()
+
+    solution(reader)
+    reader.close()
+}

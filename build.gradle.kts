@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.9.20"
-    kotlin("jupyter.api") version "0.12.0-96"
 }
 
 group = "org.example"
@@ -12,12 +11,10 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("org.jetbrains.kotlinx:kotlin-jupyter-api:0.12.0-96")
+    implementation("org.jetbrains.kotlinx:kandy-lets-plot:0.5.0")
 
-    implementation("org.jetbrains.kotlinx:dataframe:0.12.0")
-}
-
-tasks.processJupyterApiResources {
-    libraryProducers = listOf("AocIntegration")
+    implementation("org.jetbrains.kotlinx:dataframe:0.13.0-dev-2666")
 }
 
 tasks.test {
@@ -25,5 +22,5 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(11)
 }

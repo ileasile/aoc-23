@@ -55,3 +55,23 @@ fun solve(dayNumber: Int, solution: BufferedReader.() -> Unit) {
     solution(reader)
     reader.close()
 }
+
+fun printPascalsTriangle(rows: Int) {
+    val triangle = Array(rows) { LongArray(it + 1) }
+
+    for (n in 0..<rows) {
+        triangle[n][0] = 1
+        triangle[n][n] = 1
+
+        for (k in 1..<n) {
+            triangle[n][k] = triangle[n - 1][k - 1] + triangle[n - 1][k]
+        }
+    }
+
+    for (row in triangle) {
+        for (num in row) {
+            print("$num ")
+        }
+        println()
+    }
+}
